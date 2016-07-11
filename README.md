@@ -53,8 +53,7 @@ Our primary goal is to provide a structured framework that enables PHP users at 
 
 
 # adding cake php version info
-cake php version 2.8 is added.
-=======
+cake php version 2.8 is added in new branch.
 
 # cakephp-2.8
 cake php 2.8
