@@ -13,7 +13,27 @@ class MembersController extends AppController {
 	public function beforeFilter(){
 		parent::beforeFilter();
 		$this->Auth->allow('add', 'logout');
-		$this->set('user_id', $this->Auth->user('id'));
+		$this->set('user_id', $this->Auth->user('id'));		
+		$this->set('user_role', $this->Auth->user('role'));
+	}
+
+	public function isAuthorized($user){
+		if (in_array($this->action, array('add', 'view'))) {
+			return true;
+		}
+
+		if (in_array($this->action, array('edit', 'delete'))) {
+			//debug($this->action);exit;
+			$memId = (int) $this->request->params['pass'][0];
+			//debug($memId == $this->Auth->user('id'));exit;
+
+			if ($memId == $this->Auth->user('id')) {
+				return true;
+			}
+			$this->Session->setFlash('Not allowed.');
+		}
+
+		return parent::isAuthorized($user);
 	}
 
 	public function login(){
