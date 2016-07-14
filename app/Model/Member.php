@@ -22,8 +22,8 @@ class Member extends AppModel {
  */
 	public $validate = array(
 		'id' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -32,8 +32,8 @@ class Member extends AppModel {
 			),
 		),
 		'username' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Username is required.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -42,8 +42,8 @@ class Member extends AppModel {
 			),
 		),
 		'password' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Password is required.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -59,8 +59,8 @@ class Member extends AppModel {
 			)
 		),
 		'name' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Name is required.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -69,8 +69,8 @@ class Member extends AppModel {
 			),
 		),
 		'gender' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Gender is required.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -79,8 +79,8 @@ class Member extends AppModel {
 			),
 		),
 		'education' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Education  is required.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -89,8 +89,8 @@ class Member extends AppModel {
 			),
 		),
 		'avatar1' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Avatar  is required.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -99,8 +99,8 @@ class Member extends AppModel {
 			)
 		),
 		'address' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Address  is required.',
 				//'allowEmpty' => false,
 				//'required' => false,
