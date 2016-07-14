@@ -31,4 +31,53 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	public $helpers = array(
+		'Session',
+		'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
+		'Form' => array('className' => 'BoostCake.BoostCakeForm'),
+		'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
+	);
+
+	public $components = array(
+		'Session',
+		'Auth' => array(
+			'loginAction' => array(
+				'controller' => 'members',
+				'action' => 'login'
+			),
+			'loginRedirect' => array(
+				'controller' => 'members',
+				'action' => 'index'
+			),
+			'logoutRedirect' => array(
+				'controller' => 'pages',
+				'action' => 'display'
+			),
+			'authenticate' => array(
+				'Form' => array(
+					'passwordHasher' => 'Blowfish',
+					'userModel' => 'Member',
+					'fields' => array(
+						'username' => 'username',
+						'password' => 'password'
+					)
+				)
+			),
+			'Auth' => array(
+				'flash' => array(
+					'element' => 'alert',
+					'key' => 'auth',
+					'params' => array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-error'
+					)
+				)
+			)
+		)
+	);
+
+	public function beforeFilter(){
+		$this->Auth->allow('index', 'add');
+	}
 }
