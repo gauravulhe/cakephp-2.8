@@ -64,20 +64,26 @@ class AppController extends Controller {
 					)
 				)
 			),
-			'Auth' => array(
-				'flash' => array(
-					'element' => 'alert',
-					'key' => 'auth',
-					'params' => array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-error'
-					)
+			'flash' => array(
+				'element' => 'alert',
+				'key' => 'auth',
+				'params' => array(
+					'plugin' => 'BoostCake',
+					'class' => 'alert-error'
 				)
-			)
+			),
+			'authorize' => array('Controller')
 		)
 	);
 
 	public function beforeFilter(){
 		$this->Auth->allow('index', 'add');
+	}
+
+	public function isAuthorized($user){
+		if (isset($user['user_role']) && $user('user_role') !=  'member') {
+			return true;
+		}
+		return false;
 	}
 }
